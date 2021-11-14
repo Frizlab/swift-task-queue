@@ -1,0 +1,6 @@
+= TaskQueue for Swift with async/await
+François Lamboley <fload@me.com>
+
+A protocol which allows executing async tasks one after the other in an actor, given a task queue (an array of tasks).
+
+If I’m not mistaken this will not be needed anymore at some point in the future when actor will be able to have their own execution queue.
