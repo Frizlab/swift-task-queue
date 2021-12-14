@@ -23,7 +23,7 @@ public actor DoSlowTasks : HasTaskQueue {
 			if (0..<3).randomElement() == 0 {
 				throw Nope()
 			}
-			await Task.sleep(UInt64(1e9))
+			try await Task.sleep(nanoseconds: UInt64(1e9))
 			
 			self.currentScope = scope
 			return scope

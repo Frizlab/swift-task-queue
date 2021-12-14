@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
 	name: "swift-task-queue",
-	platforms: [.macOS(.v12), .iOS(.v15), .tvOS(.v15), .watchOS(.v8)],
+	platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6)],
 	products: [.library(name: "TaskQueue", targets: ["TaskQueue"])],
 	targets: [
 		.target(name: "TaskQueue"),

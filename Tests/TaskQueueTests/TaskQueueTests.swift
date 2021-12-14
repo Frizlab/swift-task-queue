@@ -26,9 +26,9 @@ final class TaskQueueTests : XCTestCase {
 	
 	func testNothing() async {
 		await withTaskGroup(of: Void.self, body: { tg in
-			tg.addTask{ await Task.sleep(UInt64(1e9)) }
-			tg.addTask{ await Task.sleep(UInt64(1e9)) }
-			tg.addTask{ await Task.sleep(UInt64(1e9)) }
+			tg.addTask{ try? await Task.sleep(nanoseconds: UInt64(1e9)) }
+			tg.addTask{ try? await Task.sleep(nanoseconds: UInt64(1e9)) }
+			tg.addTask{ try? await Task.sleep(nanoseconds: UInt64(1e9)) }
 		})
 	}
 	
