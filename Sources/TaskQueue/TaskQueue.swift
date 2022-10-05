@@ -2,7 +2,7 @@ import Foundation
 
 
 
-public typealias TaskQueue = [Task<Any, Error>]
+public typealias TaskQueue = [Task<any Sendable, Error>]
 
 
 public protocol HasTaskQueue : Actor {
@@ -14,9 +14,9 @@ public protocol HasTaskQueue : Actor {
 
 public extension HasTaskQueue {
 	
-	func executeOnTaskQueue<Result>(_ block: @escaping () async throws -> Result) async throws -> Result {
+	func executeOnTaskQueue<Result : Sendable>(_ block: @escaping @Sendable () async throws -> Result) async throws -> Result {
 		let latestTask = _taskQueue.last
-		let newTask = Task{ () async throws -> Any in
+		let newTask = Task{ () async throws -> any Sendable in
 			/* We wait for previous task to finish */
 			_ = await latestTask?.result
 			return try await block()
