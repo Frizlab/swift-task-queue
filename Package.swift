@@ -8,7 +8,7 @@ let package = Package(
 	products: [.library(name: "TaskQueue", targets: ["TaskQueue"])],
 	targets: [
 		.target(name: "TaskQueue"),
-		.target(name: "TaskQueueTestHelpers"),
+		.target(name: "TaskQueueTestHelpers", dependencies: ["TaskQueue"]),
 		.testTarget(name: "TaskQueueTests", dependencies: ["TaskQueue", "TaskQueueTestHelpers"]),
 		.executableTarget(name: "TaskQueueManualTests", dependencies: ["TaskQueue", "TaskQueueTestHelpers"])
 	]
